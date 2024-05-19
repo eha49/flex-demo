@@ -22,6 +22,11 @@ const GlobalStyles = createGlobalStyle`
     padding-top: 32px;
     background-color: ${COLORS.primary};
     color: ${COLORS.white};
+
+    @media (max-width: ${550 / 16}rem) {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
   }
 `;
 
