@@ -20,13 +20,10 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding-top: 32px;
+    padding-left: 8px;
+      padding-right: 8px;
     background-color: ${COLORS.primary};
     color: ${COLORS.white};
-
-    @media (max-width: ${550 / 16}rem) {
-      padding-left: 8px;
-      padding-right: 8px;
-    }
   }
 `;
 

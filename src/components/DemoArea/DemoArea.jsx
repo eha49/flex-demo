@@ -5,9 +5,11 @@ import { COLORS, ITEMS } from "../constants.js";
 function DemoArea({ flexDirection, justifyContent, alignItems }) {
   return (
     <DemoWrapper
-      flexDirection={flexDirection}
-      justifyContent={justifyContent}
-      alignItems={alignItems}
+      style={{
+        "--flex-direction": flexDirection,
+        "--justify-content": justifyContent,
+        "--align-items": alignItems,
+      }}
     >
       {ITEMS.map((item) => {
         return (
@@ -26,9 +28,9 @@ const DemoWrapper = styled.div`
   padding: 4px;
   display: flex;
   gap: 6px;
-  flex-direction: ${(props) => props.flexDirection};
-  justify-content: ${(props) => props.justifyContent};
-  align-items: ${(props) => props.alignItems};
+  flex-direction: var(--flex-direction);
+  justify-content: var(--justify-content);
+  align-items: var(--align-items);
 `;
 
 const FlexItem = styled(motion.div)`
