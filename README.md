@@ -1,8 +1,7 @@
-# React + Vite
+This is a project for the beginners that want a 'visual cue' as to how different properties within the Flexbox work.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I have used the basic state management to control the various layouts but I would like to attempt this problem using `useReducer` in the near future.
 
-Currently, two official plugins are available:
+For styling, I have chosen styled-components which offers a smooth experience in any component-driven framework as it solves the scoping and specificity issues that occur with traiditional CSS right out of the box, among other benifits.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To animate the smooth transition between different layouts, I have used the Framer Motion library which offers a simple approch to achieve this transition.
