@@ -8,24 +8,54 @@ import {
   ALIGN_ITEMS,
 } from "../constants.js";
 
+function reducer(layout, action) {
+  if (action.type === "flex-direction") {
+    return {
+      ...layout,
+      flexDirection: action.value,
+    };
+  } else if (action.type === "justify-content") {
+    return {
+      ...layout,
+      justifyContent: action.value,
+    };
+  } else if (action.type === "align-items") {
+    return {
+      ...layout,
+      alignItems: action.value,
+    };
+  }
+}
+
 function FlexDemo() {
-  const [flexDirection, setFlexDirection] = React.useState("row");
-  const [justifyContent, setJustifyContent] =
-    React.useState("flex-start");
-  const [alignItems, setAlignItems] = React.useState("stretch");
+  // const [flexDirection, setFlexDirection] = React.useState("row");
+  // const [justifyContent, setJustifyContent] =
+  //   React.useState("flex-start");
+  // const [alignItems, setAlignItems] = React.useState("stretch");
+
+  const [layout, dispatch] = React.useReducer(reducer, {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "stretch",
+  });
 
   return (
     <MaxWidthWrapper>
       <DemoArea
-        flexDirection={flexDirection}
-        justifyContent={justifyContent}
-        alignItems={alignItems}
+        flexDirection={layout.flexDirection}
+        justifyContent={layout.justifyContent}
+        alignItems={layout.alignItems}
       />
       <InputWrapper>
         <FlexSelect
           label="flex-direction"
-          value={flexDirection}
-          onChange={(event) => setFlexDirection(event.target.value)}
+          value={layout.flexDirection}
+          onChange={(event) =>
+            dispatch({
+              type: "flex-direction",
+              value: event.target.value,
+            })
+          }
         >
           {FLEX_DIRECTION.map((item) => {
             return (
@@ -37,8 +67,13 @@ function FlexDemo() {
         </FlexSelect>
         <FlexSelect
           label="justify-content"
-          value={justifyContent}
-          onChange={(event) => setJustifyContent(event.target.value)}
+          value={layout.justifyContent}
+          onChange={(event) =>
+            dispatch({
+              type: "justify-content",
+              value: event.target.value,
+            })
+          }
         >
           {JUSTIFY_CONTENT.map((item) => {
             return (
@@ -50,8 +85,13 @@ function FlexDemo() {
         </FlexSelect>
         <FlexSelect
           label="align-items"
-          value={alignItems}
-          onChange={(event) => setAlignItems(event.target.value)}
+          value={layout.alignItems}
+          onChange={(event) =>
+            dispatch({
+              type: "align-items",
+              value: event.target.value,
+            })
+          }
         >
           {ALIGN_ITEMS.map((item) => {
             return (

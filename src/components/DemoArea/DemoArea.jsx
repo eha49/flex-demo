@@ -36,10 +36,12 @@ const DemoWrapper = styled.div`
 const FlexItem = styled(motion.div)`
   background: ${COLORS.secondary};
   padding: 8px;
+  will-change: transform;
 `;
 
 const TextContent = styled(motion.p)`
   margin: 0;
+  will-change: transform;
 `;
 
 export default DemoArea;
