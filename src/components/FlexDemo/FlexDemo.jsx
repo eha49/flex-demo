@@ -9,21 +9,25 @@ import {
 } from "../constants.js";
 
 function reducer(layout, action) {
-  if (action.type === "flex-direction") {
-    return {
-      ...layout,
-      flexDirection: action.value,
-    };
-  } else if (action.type === "justify-content") {
-    return {
-      ...layout,
-      justifyContent: action.value,
-    };
-  } else if (action.type === "align-items") {
-    return {
-      ...layout,
-      alignItems: action.value,
-    };
+  switch (action.type) {
+    case "flex-direction": {
+      return {
+        ...layout,
+        flexDirection: action.value,
+      };
+    }
+    case "justify-content": {
+      return {
+        ...layout,
+        justifyContent: action.value,
+      };
+    }
+    case "align-items": {
+      return {
+        ...layout,
+        alignItems: action.value,
+      };
+    }
   }
 }
 
